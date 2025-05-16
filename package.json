@@ -11,5 +11,6 @@
   "description": "",
   "dependencies": {
     "section03": "file:"
-  }
+  },
+  "type": "module"
 }
