@@ -14,3 +14,8 @@ import mul, { add, sub } from "./math.js";
 console.log(add(5, 8));
 console.log(sub(5, 2));
 console.log(mul(4, 85));
+
+//- Node.js 라이브러리 사용하기
+import randomColor from "randomcolor";
+const color = randomColor();
+console.log(color);
