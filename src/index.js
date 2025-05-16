@@ -11,5 +11,7 @@
 //- ES모듈 시스템에서 값 받아오기
 //import 객체명 from 경로(*경로는 꼭 확장자명 .js까지 붙여줘야지 찾을 수있음.)
 import { add, sub } from "./math.js";
-console.log(add(5, 1));
-console.log(sub(5, 1));
+import mul from "./math.js";
+console.log(add(5, 8));
+console.log(sub(5, 2));
+console.log(mul(4, 85));

@@ -1,10 +1,14 @@
 //계산모듈 Math모듈
-function add(a, b) {
+export function add(a, b) {
   return a + b;
 }
 
-function sub(a, b) {
+export function sub(a, b) {
   return a - b;
+}
+
+export default function multiply(a, b) {
+  return a * b;
 }
 // //- Common Js모듈 시스템 사용해서 함수 내보내기
 // module.exports = { add, sub };
@@ -12,4 +16,4 @@ function sub(a, b) {
 
 //- ES 모듈시스템 사용하기
 //export키워드 뒤에 객체를 리터럴로 생성
-export { add, sub };
+// export { add, sub };
