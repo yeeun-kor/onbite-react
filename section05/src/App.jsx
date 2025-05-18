@@ -1,18 +1,16 @@
-import './App.css'
-import Footer from './components/Footer'
-import Header from "./components/Header"
-import Main from './components/Main'
-
+import "./App.css";
+import Button from "./components/Button";
 
 function App() {
   return (
     <>
-    <Header></Header>
-<h1>안녕 리액트??</h1>
-<Main></Main>
-<Footer></Footer>
+      <Button text={"메일"} color={"blue"} />
+      <Button text={"카페"} />
+      <Button text={"블로그"}>
+        <div>자식요소</div>
+      </Button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
