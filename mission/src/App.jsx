@@ -2,9 +2,11 @@ import "./App.css";
 import Welcome from "./components/Welcome";
 
 function App() {
+  const name = "정예은";
+  const isMember = true;
   return (
     <>
-      <Welcome></Welcome>
+      <Welcome name={name} isMember={isMember}></Welcome>
     </>
   );
 }
