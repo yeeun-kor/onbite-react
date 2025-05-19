@@ -100,3 +100,5 @@
 - ` <div className="logout">로그아웃2</div>` css스타일 설정하기
 
 ---
+
+# Props란?
