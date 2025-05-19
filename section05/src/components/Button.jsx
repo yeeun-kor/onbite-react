@@ -1,11 +1,10 @@
-import React from 'react'
-
-function Button(props) {
-  console.log(props);
+const Button = ({ text, color, children }) => {
   return (
-  
-    <button style={{ color: props.color }}>{props.text} - {props.color}</button>
-  )
-}
+    <button style={{ color: color }}>
+      {text}- {color}
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
