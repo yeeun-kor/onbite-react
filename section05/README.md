@@ -239,3 +239,21 @@
 
 - 이미지 처럼 , 관련 없는 state들이 하나의 컴포넌트에 뭉쳐 있으면 " 불필요한 랜더링 " 이 발생
 - 🛠️그래서 따로따로 컴포넌트 관리해주는게 좋다.
+
+<br>
+<br>
+
+---
+
+# State로 사용자 입력 관리1️⃣
+
+## 생년월일 정보 받기
+
+`const today = new Date().toISOString().split("T")[0]; 
+  const [birth, setBirth] = useState(today);
+  `
+
+- 오늘 날짜를 기본값(useState())값으로 설정하려면 먼저, today변수부터 설정 해야한다.
+- `Date().toISOString()` 결과값은 `2025-05-19T12:34:56.789Z ` 같은 형태로 저장이 된다.
+- `split`함수를 사용해서 끊어치기 해야한다.
+- 주로 `input type="date"` 과 함께 자주 사용된다.
