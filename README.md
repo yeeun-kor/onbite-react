@@ -317,6 +317,9 @@ inputRef.current.focus()
 
 - 애초에 내부적으로 이런식으로 설계되어 있음.
 
+<br>
+<br>
+
 ---
 
 # React Hook
@@ -325,10 +328,16 @@ inputRef.current.focus()
 - 우리가 지금 쓰고 있는 `함수형 컴포넌트`도 사용하긴 했지만, 간단한 UI구현만 할 뿐, 중요한 기능들은 주로 `class 컴포넌트`에 구현되어있음.
 - 이런 불편한점을 해결하고자 개발자들이 오픈소스로 기능을 개발하였음
 
+<br>
+<br>
+
 ## Hook에 대해서
 
 - `class컴포넌트`에 있는 주요 기능들을 끌어 당기는 의미로 `Hook` 을 사용해서 `class컴포넌트`기능을 끌어올리자.
 - 📚그래서 우리가 그동안 사용하였던, `useState()`와 `useRef()` 리액트의 내장함수는 사실 `React Hooks`였던 것 !
+
+<br>
+<br>
 
 ## Hook과 관련된 3가지 팁
 
@@ -338,12 +347,18 @@ inputRef.current.focus()
 
 - 이미지 처럼, 함수 컴포넌트 외부에서 사용하면 즉시 에러가 발생함.
 
+<br>
+<br>
+
 ### 2. hook은 조건부로 호출 못한다.
 
 ![alt text](image-7.png)
 
 - 이미지 처럼 조건부 내부에서 `hook`을 호출할 순 없다.
 - 이유는 간단하게 설명하자면 조건문에서 호출하게 되면 `HOOK`끼리 내부에서 꼬여버리기 때문에...
+
+<br>
+<br>
 
 ### 3. 커스텀훅 만들 수 있다.
 
@@ -353,12 +368,18 @@ inputRef.current.focus()
   3. html 요소에서 값 세팅하기
 - 한개의 요소값을 받는데에도, 3가지 코드를 작성해야하고 반복해야함
 - 이걸 한번에 커스텀훅을 사용해서 묶어주기가 가능하다.
-- `
-function getInput() {
-  const [input, setInput] = useState("");
-  const onChange = (e) => {
-    setInput(e.target.value);
-    return [input, onChange];
-  };
-}`
+
+<br>
+<br>
+
+- ![alt text](image-8.png)
 - 🎯커스텀훅 만들기 : `use`라는 접두사를 붙여서 인식하게 해준다.
+- 🤔왜 return값이 배열?
+  - react훅은 배열이나 객체로 값을 반환하는게 `일반적`
+  - 구조분해할당([input,onChange])으로 값을 받는건 React개발의 표준 패턴.
+
+<br>
+
+![사용하는훅](image-9.png)
+
+- 커스텀훅을 사용할땐, 커스텀훅에서 return하는 배열값을 구조분해할당으로 동일하게 배열값으로 받아와야한다.
