@@ -1,11 +1,13 @@
 import "./App.css";
-import HookExam from "./components/HookExam";
-import Register from "./components/Register";
+import Controller from "./components/Controller";
+import Viewer from "./components/Viewer";
 
 function App() {
   return (
     <>
-      <HookExam></HookExam>
+      <h1>Counter App</h1>
+      <Viewer></Viewer>
+      <Controller></Controller>
     </>
   );
 }
