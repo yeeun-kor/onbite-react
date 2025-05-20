@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const OrderEditor = () => {
+  // 통합 상태변화
   const [input, setInput] = useState({
     menu: "",
     address: "",
     request: "",
   });
 
+  //레퍼런스객체
+  const orderRef = useRef();
+
+  //통합 이벤트 핸들러
   const onChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   const onSubmit = () => {
+    if (orderRef.current.value === "") {
+      orderRef.current.focus();
+      return;
+    }
     alert(
       "주문이 완료되었습니다! 메뉴명 : " +
         input.menu +
@@ -41,6 +50,7 @@ const OrderEditor = () => {
         <div style={{ marginBottom: 5, fontSize: 14 }}>배달 주소</div>
         <input
           name="address"
+          ref={orderRef}
           value={input.address}
           onChange={onChange}
           style={{ width: 300, padding: 5 }}
