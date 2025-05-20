@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 //회원가입 폼 만들기
 //1. 이름
@@ -13,18 +13,37 @@ export default function Register() {
     birth: "",
     country: "",
     bio:""
-})
+  })
+  
+  // *useRef 레퍼런스 객체 만들기 
+  const countRef = useRef(0);
+  const inputRef = useRef()
+  let count = 0;
 
   // * 통합 이벤트 핸들러
   const onChange = (e) => {
+    countRef.current++;
+    console.log(countRef.current);
     setInput({...input,[e.target.name]:e.target.value}
-  )}
+    )
+  }
+  
+  //*제출하는 이벤트 
+  const onSubmit = () => {
+    if (input.name === "") {
+      //이름을 입력하는 DOM요소에 포커싱함. 
+  inputRef.current.focus()
+    
+    }
+  }
 
   return (
     <div>
+     
       <div>
         {/* 1. 이름 */}
         <input
+          ref={inputRef}
         name="name"  value={input.name} placeholder="이름" onChange={onChange} />
         입력값 : {input.name}
       </div>
@@ -55,6 +74,7 @@ export default function Register() {
         ></textarea>
         자기소개 내용 : {input.bio}
       </div>
+      <button  onClick={onSubmit}> 제출하기</button>
     </div>
   );
 }
