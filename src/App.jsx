@@ -7,10 +7,15 @@ function App() {
   const [count, setCount] = useState(0);
   const [input, setInput] = useState("");
 
-  //useEffect 호출
-  // useEffect(() => {
-  //   console.log(`count값은 ? : ${count} / input의 값은 ? : ${input}`);
-  // }, [count, input]);
+  //1. 마운트 : 생성
+  useEffect(() => {
+    console.log("mount");
+  }, []);
+  //2. 업데이팅 : 변화, 리랜더링
+  useEffect(() => {
+    console.log("updating");
+  });
+  //3. 언마운트 : 죽음
 
   const onClickButton = (value) => {
     setCount(count + value);
