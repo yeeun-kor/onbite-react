@@ -45,3 +45,34 @@
 - 마운트의 빈배열은 , 변화가 있을때에만 호출 -> 첫 마운트 될때에만 호출인거고
 - 업데이트는 `함수컴포넌트 자체가 리랜더링` 될때 호출이 됨.
   > 처음 mount될때엔 왜 update 도 출력이 되는 걸까?
+  - mount도 최초 랜더링에 포함이 된다.
+  - 그래서 updating 로그가 최초 마운트를 제외하고 **상태/props 변경 시에만 출력되길** 원한다면, 의존성 배열에 특정 상태를 추가
+
+### mount체크하는 useRef 이용하기
+
+1. 현재 컴포넌트가 `마운트`되었는지 확인하는 `useRef()`객체 생성하기
+
+- `const isMount = useRef(false);`
+- useRef의 초기값은 마운트 되기 전이니깐, "false"설정
+
+2. 콜백함수에 조건문 추가
+
+- `  useEffect(() => {
+  if (!isMount.current) {
+    isMount.current = true;
+    return;
+  }
+  console.log("updating");
+});`
+- if문 : useRef객체값이 false 는 마운트 되지 않았다는 뜻 . 즉, 초기 랜더링이 되지 않은상태
+- if문 결과 : 초기랜더링이 되지 않았으면, true로 바꾸어 return으로 if문 빠져나오기 -> 그로인해 console의 업데이트 ㅏㅄ이 호출되지 않음
+
+## 3. unmount제어하기
+
+- `  useEffect(() => {
+return ()=>{}}, []);` 설정하되, 콜백함수의 return부분에 콜백함수 추가하기
+- 이 return의 콜백함수는 "클린업함수"라고 함
+- 클린업함수는 unmount시 실행된다.
+- 그래서 이 클린업함수를 활용하여 unmount 관리해주면 된다.
+
+---
